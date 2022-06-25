@@ -62,8 +62,8 @@ const Container = styled.div`
 
 const Map = styled.div`
   position: static;
-  width: 400px;
-  height: 300px;
+  width: 500px;
+  height: 350px;
 `
 
 export default StaticMap
