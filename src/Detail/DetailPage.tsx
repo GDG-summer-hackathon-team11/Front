@@ -3,8 +3,7 @@ import DynamicMap from "../Map/DynamicMap";
 const DetailPage = () => {
   return (
     <AppScreen theme="cupertino" appBar={{ title: "상세 페이지" }}>
-    <DynamicMap>
-      </DynamicMap>
+      상세
     </AppScreen>
   )
 }
