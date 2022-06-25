@@ -57,13 +57,14 @@ const Container = styled.div`
   right: 0;
   top: 0;
   bottom: 0;
-  padding-left:200px;
+  width:100%;
+  height:100%;
 `
 
 const Map = styled.div`
   position: static;
-  width: 500px;
-  height: 350px;
+  width: 100rem;
+  height: 30rem;
 `
 
 export default StaticMap
