@@ -6,7 +6,7 @@ interface StaticMapProps {
   children: ReactNode
 }
 
-const DynamicMap = (props:StaticMapProps) => {
+const StaticMap = (props:StaticMapProps) => {
   const [map, setMap] = useState<kakao.maps.Map>()
   const kakaoMapRef = useRef<HTMLDivElement>(null)
 
@@ -57,12 +57,13 @@ const Container = styled.div`
   right: 0;
   top: 0;
   bottom: 0;
+  padding-left:200px;
 `
 
 const Map = styled.div`
   position: static;
-  width: 100%;
-  height: 100%;
+  width: 400px;
+  height: 300px;
 `
 
-export default DynamicMap
+export default StaticMap
