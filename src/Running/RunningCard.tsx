@@ -61,21 +61,19 @@ const Age = styled.div`
 `
 
 const Article = styled.article`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: fixed;
-  
-  right: 1rem;
-  left: 1rem;
-  bottom: 1rem;
-  z-index: 2;
+  //display: flex;
+  //flex-direction: column;
+  //justify-content: center;
+  //position: fixed;
+  //
+  margin: 2rem 1rem;
+  //bottom: 1rem;
+  //z-index: 2;
   padding: 0.875rem 1.375rem 0.4375rem;
-  
+  //
   box-shadow: 2px 3px 6px #00000029;
   background-color: white;
   border-radius: 1.25rem;
-  min-height: 4rem;
 `
 
 export default RunningCard
