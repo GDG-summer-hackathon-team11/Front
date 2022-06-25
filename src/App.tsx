@@ -1,14 +1,15 @@
 import React from 'react';
 import { Stack } from './Stack/stackflow';
 import KakaoMapScriptLoader from "./Map/KakaoMapScriptLoader";
+import {RecoilRoot} from "recoil";
 
 function App() {
   return (
-    <div>
+    <RecoilRoot>
       <KakaoMapScriptLoader>
         <Stack />
       </KakaoMapScriptLoader>
-    </div>
+    </RecoilRoot>
   );
 }
 
