@@ -4,9 +4,10 @@ import 'swiper/css/pagination';
 import RunningCard from "./RunningCard";
 import {useFlow} from "../Stack/stackflow";
 import styled from "@emotion/styled";
-import {useEffect, useRef} from "react";
+import {useEffect, useRef, useState} from "react";
 import {Pagination} from 'swiper';
 import {css} from '@emotion/css'
+import {useHistoryState} from "../History/HistoryStore";
 
 interface RunningSwiperProps {
   places: any[]
@@ -14,7 +15,13 @@ interface RunningSwiperProps {
 
 const RunningSwiper = (props: RunningSwiperProps) => {
   const {push} = useFlow();
+  const { id } = useHistoryState();
+  const [swiper, setSwiper] = useState<any>(null);
   const scrollerRef = useRef<HTMLDivElement | null>(null);
+
+  // useEffect(() => {
+  //   swiper?.slideTo(props.places.findIndex(item => item.id === id) ?? 1)
+  // }, [id])
 
   useEffect(() => {
     const scroller = scrollerRef.current
@@ -38,12 +45,18 @@ const RunningSwiper = (props: RunningSwiperProps) => {
     }
   }, [scrollerRef])
 
+  if(!id) {
+    return null;
+  }
+
   return (
     <SwiperContainer ref={scrollerRef}>
       <Swiper
         className={css`
           --swiper-pagination-color: #6F7070
         `}
+        initialSlide={props.places.findIndex(item => item.id === id) ?? 1}
+        onSwiper={setSwiper}
         pagination
         modules={[Pagination]}
         spaceBetween={50}

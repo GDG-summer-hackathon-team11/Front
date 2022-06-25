@@ -1,12 +1,10 @@
 import { AppScreen } from "@stackflow/basic-ui";
 import DynamicMap from "../Map/DynamicMap";
 import MapMarkerController from "../Map/MapMarkerController";
-import {useHistoryState} from "../History/HistoryStore";
 import RunningSwiper from "../Running/RunningSwiper";
 import {useEffect, useState} from "react";
 
 const MainPage = () => {
-  const { id } = useHistoryState();
   const [places, setPlaces] = useState<any>([]);
 
   useEffect(() => {
@@ -44,11 +42,7 @@ const MainPage = () => {
     <AppScreen theme="cupertino">
       <DynamicMap>
         <MapMarkerController places={places} />
-        {
-          id ? (
-            <RunningSwiper places={places} />
-          ) : null
-        }
+        <RunningSwiper places={places} />
       </DynamicMap>
     </AppScreen>
   )

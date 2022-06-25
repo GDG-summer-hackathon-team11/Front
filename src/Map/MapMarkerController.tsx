@@ -1,14 +1,15 @@
 import {useEffect} from "react";
 import MapMarker from "./MapMarker";
 import {useMap} from "./useMap";
+import {useHistoryState} from "../History/HistoryStore";
 
 interface MapMarkerControllerProps {
-  selectedMarkerId?: string
   places: any[]
 }
 
 const MapMarkerController = (props:MapMarkerControllerProps) => {
   const map = useMap()
+  const { id } = useHistoryState()
 
   useEffect(() => {
     if(!props.places || props.places.length < 1) {
@@ -34,7 +35,7 @@ const MapMarkerController = (props:MapMarkerControllerProps) => {
                    index={index}
                    title={place.name}
                    type={place.type}
-                   showInfo={props.selectedMarkerId === place.id}
+                   isSelected={id === place.id}
         />
       ))}
     </>
