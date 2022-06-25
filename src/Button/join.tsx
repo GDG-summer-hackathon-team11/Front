@@ -14,14 +14,16 @@ const JoinButton = () => {
 
 
 const Button = styled.button`
+    display:flex;
+    margin:auto;
     text-align:center;
     background-color:#1B431A;
     color:white;
     width:50em;
-    height:5em;
+    height:;
     border-radius:1.5em;
     cursor:pointer;
-    
+    padding-left:23em;
 `
 
 export default JoinButton;
