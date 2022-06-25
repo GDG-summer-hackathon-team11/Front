@@ -17,8 +17,8 @@ const DetailPage = () => {
   };
   return (
     <div onClick={onClick}>
-    <AppScreen  theme="cupertino"  appBar={{ title: "상세페이지" }}>
-    <StaticMap>
+    <AppScreen theme="cupertino" appBar={{ title: "상세 페이지" }}>
+        <StaticMap>
     </StaticMap>
     <LocationDetail/>
     <JoinButton/>
