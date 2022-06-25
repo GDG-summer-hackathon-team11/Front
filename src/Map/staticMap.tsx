@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import { KakaoMapContext } from "./useMap";
 
 interface StaticMapProps {
-  children: ReactNode
+  children?: ReactNode
 }
 
 const StaticMap = (props:StaticMapProps) => {
@@ -28,7 +28,7 @@ const StaticMap = (props:StaticMapProps) => {
 
     const options = {
       center: targetPoint,
-      level: 5,
+      level: 4,
       draggable: false,
     };
 
