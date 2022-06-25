@@ -21,7 +21,6 @@ const DetailPage = () => {
         <StaticMap>
     </StaticMap>
     <LocationDetail/>
-    <JoinButton/>
     </AppScreen>
     </div>
   )

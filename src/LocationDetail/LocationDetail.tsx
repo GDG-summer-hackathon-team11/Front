@@ -3,8 +3,9 @@ import { useLayoutEffect, useMemo, useRef} from "react";
 import styled from "@emotion/styled";
 import {getHistoryStateById} from "../History/historyUtil";
 import axios from "axios";
-import { useQueries } from "react-query";
-import RunFoot from '../_assets/Running.png'
+import RunningDifficulty from "../Running/RunningDifficulty";
+import RunningMembers from "../Running/RunningMembers";
+import JoinButton from "../Button/join";
 
 const LocationDetail = () => {
     const locationinfo = async(id:any) =>{
@@ -27,9 +28,12 @@ const LocationDetail = () => {
             </Details>
             <Details>
                 난이도
+                <RunningDifficulty difficult={1}/>
+                <h6>가벼운 운동</h6>
             </Details>
             <Details>
                 인원
+                <RunningMembers count = {2}/>
             </Details>
             <Details>
                 시간
@@ -39,6 +43,7 @@ const LocationDetail = () => {
                 나이대
                 <h6>20대</h6>
             </Details>
+            <JoinButton/>
         </Containers>
     );
 }
@@ -55,6 +60,7 @@ const Containers = styled.div`
 const Details = styled.div`
     font-size:1.6rem;
     padding-bottom:0.4em;
-
+    text-align:center;
+    margin:auto;
 `
 export default LocationDetail;
