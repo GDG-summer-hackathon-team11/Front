@@ -1,13 +1,13 @@
 import {ReactNode, useEffect, useRef, useState} from "react";
 import styled from "@emotion/styled";
-// import { KakaoMapContext } from "./useMap";
+import { KakaoMapContext } from "./useMap";
 
 interface StaticMapProps {
   children: ReactNode
 }
 
-const StaticMap = (props:StaticMapProps) => {
-  const [smap, setsMap] = useState<kakao.maps.StaticMap>()
+const DynamicMap = (props:StaticMapProps) => {
+  const [map, setMap] = useState<kakao.maps.Map>()
   const kakaoMapRef = useRef<HTMLDivElement>(null)
 
 
@@ -18,18 +18,21 @@ const StaticMap = (props:StaticMapProps) => {
 
     const { kakao } = window;
 
-    // 공식 문서에 있는 지도 시작 주소
-    const targetPoint = new kakao.maps.LatLng(37.566826, 126.9786567)
+    // 역삼역 주소
+    const centerPoint = {
+      latitude: 37.5006744185994,
+      longitude: 127.03646946847
+    }
+
+    const targetPoint = new kakao.maps.LatLng(centerPoint.latitude, centerPoint.longitude)
 
     const options = {
       center: targetPoint,
-      level: 3,
-      marker: {
-           position : new kakao.maps.LatLng(33.450401, 126.570647),
-        }  
+      level: 5,
+      draggable: false,
     };
 
-    setsMap(new kakao.maps.StaticMap(kakaoMapRef.current, options));
+    setMap(new kakao.maps.Map(kakaoMapRef.current, options));
   }, [])
 
   return (
@@ -37,6 +40,13 @@ const StaticMap = (props:StaticMapProps) => {
       <Container>
         <Map ref={kakaoMapRef} />
       </Container>
+      {
+        map ? (
+          <KakaoMapContext.Provider value={map}>
+            { props.children }
+          </KakaoMapContext.Provider>
+        ) : null
+      }
     </>
   )
 }
@@ -55,4 +65,4 @@ const Map = styled.div`
   height: 100%;
 `
 
-export default StaticMap;
+export default DynamicMap
