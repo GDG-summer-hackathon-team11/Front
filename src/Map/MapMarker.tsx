@@ -32,8 +32,6 @@ const MapMarker = (props:MapMarkerProps) => {
       image: markerImage
     });
 
-    marker.setMap(map); // 지도 위에 마커를 표출합니다
-
     kakao.maps.event.addListener(marker, 'click', function() {
       map.setCenter(props.position);
       map.setLevel(4, {
@@ -53,14 +51,12 @@ const MapMarker = (props:MapMarkerProps) => {
   const activeMarker = useMemo(() => {
     const { kakao } = window;
 
-    const imageSize = new kakao.maps.Size(21, 28)
+    const imageSize = new kakao.maps.Size(38, 50)
     const markerImage = new kakao.maps.MarkerImage(IconActiveStartPin, imageSize);
     const marker = new kakao.maps.Marker({
       position: props.position, // 마커의 위치
       image: markerImage
     });
-
-    marker.setMap(map); // 지도 위에 마커를 표출합니다
 
     kakao.maps.event.addListener(marker, 'click', function() {
       map.setCenter(props.position);

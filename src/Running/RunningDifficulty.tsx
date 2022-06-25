@@ -12,11 +12,11 @@ const RunningDifficulty = (props:RunningDifficultyProps) => {
       {
         Array.from({length: 3}).map((item, index) => {
           if(props.difficult >= index + 1) {
-            return <Icon src={RunningActiveIcon}/>
+            return <Icon key={index} src={RunningActiveIcon}/>
           }
 
           return (
-            <Icon src={RunningIcon}/>
+            <Icon key={index} src={RunningIcon}/>
           )
         })
       }

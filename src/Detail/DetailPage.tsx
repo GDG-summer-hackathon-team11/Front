@@ -3,7 +3,6 @@ import StaticMap from "../Map/staticMap"
 import {useFlow} from "../Stack/stackflow";
 import {getHistoryStateById} from "../History/historyUtil";
 import LocationDetail from "../LocationDetail/LocationDetail";
-import JoinButton from "../Button/join";
 
 const DetailPage = () => {
   const { push } = useFlow();
