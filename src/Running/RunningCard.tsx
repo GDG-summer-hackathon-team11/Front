@@ -5,15 +5,11 @@ import { useSwiperSlide } from 'swiper/react';
 import {useEffect} from "react";
 import {useMap} from "../Map/useMap";
 import {useHistoryActions} from "../History/HistoryStore";
+import {PlaceType} from "../Main/EvnetType";
 
 interface RunningCardProps {
   onClick: () => void
-  place:any
-  // title: string
-  // time:string
-  // member: string
-  // interestCount: number
-  // ageRange: string
+  place:PlaceType
 }
 
 const RunningCard = (props:RunningCardProps) => {
@@ -33,16 +29,16 @@ const RunningCard = (props:RunningCardProps) => {
   return (
     <Article onClick={props.onClick}>
       <Header>
-        <Title>메인 페이지</Title>
-        <RunningDifficulty difficult={2}/>
+        <Title>{props.place.name}</Title>
+        <RunningDifficulty difficult={props.place.level}/>
       </Header>
-      <Time>시간 18:00</Time>
+      <Time>시간 {props.place.date}</Time>
       <Members>
         <MemberTitle>인원</MemberTitle>
-        <RunningMembers count={3} />
+        <RunningMembers count={props.place.members.length} />
       </Members>
       <Interest>관심사</Interest>
-      <Age>나이대</Age>
+      <Age>나이 {props.place.ageCoverage}대</Age>
     </Article>
   )
 }

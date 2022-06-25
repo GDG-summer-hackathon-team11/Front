@@ -34,7 +34,6 @@ const MapMarkerController = (props:MapMarkerControllerProps) => {
         <MapMarker key={place.id} id={place.id} position={place.position}
                    index={index}
                    title={place.name}
-                   type={place.type}
                    isSelected={id === place.id}
         />
       ))}

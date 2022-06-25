@@ -16,12 +16,8 @@ interface RunningSwiperProps {
 const RunningSwiper = (props: RunningSwiperProps) => {
   const {push} = useFlow();
   const { id } = useHistoryState();
-  const [swiper, setSwiper] = useState<any>(null);
+  const [swiper, setSwiper] = useState<any>(null)
   const scrollerRef = useRef<HTMLDivElement | null>(null);
-
-  // useEffect(() => {
-  //   swiper?.slideTo(props.places.findIndex(item => item.id === id) ?? 1)
-  // }, [id])
 
   useEffect(() => {
     const scroller = scrollerRef.current
@@ -45,18 +41,22 @@ const RunningSwiper = (props: RunningSwiperProps) => {
     }
   }, [scrollerRef])
 
+  useEffect(() => {
+    swiper?.slideTo(props.places.findIndex(item => item.id === id) ?? 1)
+  }, [id])
+
   if(!id) {
     return null;
   }
-
+  
   return (
     <SwiperContainer ref={scrollerRef}>
       <Swiper
+        onSwiper={setSwiper}
         className={css`
           --swiper-pagination-color: #6F7070
         `}
         initialSlide={props.places.findIndex(item => item.id === id) ?? 1}
-        onSwiper={setSwiper}
         pagination
         modules={[Pagination]}
         spaceBetween={50}
