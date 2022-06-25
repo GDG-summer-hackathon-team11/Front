@@ -51,7 +51,7 @@ const MapMarker = (props:MapMarkerProps) => {
   const activeMarker = useMemo(() => {
     const { kakao } = window;
 
-    const imageSize = new kakao.maps.Size(21, 28)
+    const imageSize = new kakao.maps.Size(38, 50)
     const markerImage = new kakao.maps.MarkerImage(IconActiveStartPin, imageSize);
     const marker = new kakao.maps.Marker({
       position: props.position, // 마커의 위치
