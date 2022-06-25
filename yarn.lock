@@ -1587,10 +1587,10 @@
   dependencies:
     react-fast-compare "^3.2.0"
 
-"@stackflow/plugin-history-sync@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@stackflow/plugin-history-sync/-/plugin-history-sync-0.3.0.tgz#051786945622731a7cad4af6c7ef2e44813c8139"
-  integrity sha512-8qXybn+CCgBm5WqmI5aXIkLqWDJzC+9wo7/Ffo802VKl8bjXgcHMAcnU5pOvlZzZtwk4v4xa4/j7LUsfD/vVAg==
+"@stackflow/plugin-history-sync@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@stackflow/plugin-history-sync/-/plugin-history-sync-0.2.0.tgz#d718f08a8136000c2a4e3bcccf7dfe512b3524d8"
+  integrity sha512-lVu+KQpxCXcWJklx/YnSEvqv+2GWde0jC1SUp2KvY/Vfa3PcRsA686NeDYAzTz3g7Ygw9J5RZDhDl/1trSKX9g==
   dependencies:
     url-pattern "^1.0.3"
 

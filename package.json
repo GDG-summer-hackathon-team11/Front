@@ -5,7 +5,7 @@
   "dependencies": {
     "@stackflow/basic-ui": "^0.2.3",
     "@stackflow/core": "^0.2.1",
-    "@stackflow/plugin-history-sync": "^0.3.0",
+    "@stackflow/plugin-history-sync": "^0.2.0",
     "@stackflow/plugin-renderer-basic": "^0.2.3",
     "@stackflow/react": "^0.2.3",
     "@testing-library/jest-dom": "^5.14.1",
