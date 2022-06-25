@@ -49,16 +49,15 @@ const LocationDetail = () => {
 }
 
 const Containers = styled.div`
-    width: 100rem;
-    height:50rem;
+    width: 90vw;
+    height: 50vh;
     padding-top:500px;
-    padding-left:50px;
+    padding-left:10px;
     padding-bottom:0.6em;
     font-weight:bold;`
 
 const Details = styled.div`
     font-size:1.6rem;
     padding-bottom:0.4em;
-    margin:auto;
 `
 export default LocationDetail;

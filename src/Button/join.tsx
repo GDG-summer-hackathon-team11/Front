@@ -19,11 +19,12 @@ const Button = styled.button`
     text-align:center;
     background-color:#1B431A;
     color:white;
-    width:50em;
+    width:90vw;
     border-radius:1.5em;
     cursor:pointer;
     padding-left:23em;
-    height:5em;
+    padding-top:0.3em;
+    height:5vh;
     border-radius:1.5em;
     cursor:pointer;
     
