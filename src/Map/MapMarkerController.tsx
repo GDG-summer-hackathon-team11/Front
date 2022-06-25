@@ -61,7 +61,7 @@ const MapMarkerController = (props:MapMarkerControllerProps) => {
   return (
     <>
       {places.map((place:any, index:number) => (
-        <MapMarker key={place.id} position={place.position}
+        <MapMarker key={place.id} id={place.id} position={place.position}
                    index={index}
                    title={place.name}
                    type={place.type}
