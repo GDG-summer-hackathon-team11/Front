@@ -3,40 +3,41 @@ import DynamicMap from "../Map/DynamicMap";
 import MapMarkerController from "../Map/MapMarkerController";
 import RunningSwiper from "../Running/RunningSwiper";
 import {useEffect, useState} from "react";
+import {useQuery} from "react-query";
+import {remote} from "../Remote/remote";
+import {EventType} from "./EvnetType";
+import format from "date-fns/format";
 
 const MainPage = () => {
+  const { isLoading, error, data } = useQuery('events',  () => remote.get('/events').then(res => res.data))
+
+
+  //
+  // if (error) {
+  //   return 'Error';
+  // }
+
   const [places, setPlaces] = useState<any>([]);
 
   useEffect(() => {
-    const MOCK_PLACES = [
-      {
-        id: '1',
-        position: new kakao.maps.LatLng(37.500149122816275, 127.03345649963086),
-        name: "마켓컬리",
-        type: 'main'
-      },
-      {
-        id: '2',
-        position: new kakao.maps.LatLng(37.49808633653005, 127.02800140627488),
-        name: "강남역 2호선",
-        type: 'checkpoint'
-      },
-      {
-        id: '3',
-        position: new kakao.maps.LatLng(37.5016573944824, 127.026391177132),
-        name: "CGV 강남",
-        type: 'checkpoint'
-      },
-      {
-        id: '4',
-        position: new kakao.maps.LatLng(37.503755423867155, 127.02410739090031),
-        name: "당근마켓",
-        type: 'checkpoint'
-      },
-    ]
+    if (isLoading) {
+      return;
+    }
 
-    setPlaces(MOCK_PLACES)
-  }, [])
+    const result = data.map((item:EventType) => {
+      return {
+        id: item._id,
+        name: item.startPoint.name,
+        date: format(new Date(item.time), "HH:mm"),
+        position: new kakao.maps.LatLng(item.startPoint.x, item.startPoint.y),
+        members: item.member,
+        level: item.level,
+        ageCoverage: item.ageCoverage
+      }
+    })
+
+    setPlaces(result)
+  }, [data])
 
   return (
     <AppScreen theme="cupertino">

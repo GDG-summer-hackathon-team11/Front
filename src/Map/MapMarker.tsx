@@ -8,7 +8,6 @@ import {useHistoryActions } from "../History/HistoryStore";
 
 interface MapMarkerProps {
   position: kakao.maps.LatLng
-  type: 'checkpoint' | 'main'
   index: number
   title: string
   id: string
