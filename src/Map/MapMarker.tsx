@@ -4,23 +4,20 @@ import styled from "@emotion/styled";
 import {useMap} from "./useMap";
 import IconStartPin from '../_assets/pin_start.png'
 import IconActiveStartPin from '../_assets/pin_start_active.png'
-import {useHistoryActions, useHistoryState} from "../History/HistoryStore";
+import {useHistoryActions } from "../History/HistoryStore";
 
 interface MapMarkerProps {
   position: kakao.maps.LatLng
-  type: 'checkpoint' | 'main'
   index: number
   title: string
   id: string
-  showInfo?:boolean
+  isSelected:boolean
 }
 
 const MapMarker = (props:MapMarkerProps) => {
   const map = useMap()
-  const { id } = useHistoryState()
   const { setSelectedId } = useHistoryActions()
   const container = useRef(document.createElement("div"))
-  const isSelected = id === props.id;
 
   const marker = useMemo(() => {
     const { kakao } = window;
@@ -75,7 +72,7 @@ const MapMarker = (props:MapMarkerProps) => {
   }, [map, props.id, props.position, setSelectedId])
 
   useLayoutEffect(() => {
-    if(isSelected) {
+    if(props.isSelected) {
       activeMarker.setMap(map)
 
       return () => {
@@ -87,7 +84,7 @@ const MapMarker = (props:MapMarkerProps) => {
     return () => {
       marker.setMap(null)
     }
-  }, [map, marker, activeMarker, isSelected])
+  }, [map, marker, activeMarker, props.isSelected])
 
   return (
     container.current &&

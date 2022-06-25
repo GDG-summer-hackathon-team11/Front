@@ -20,10 +20,13 @@ const Button = styled.button`
     background-color:#1B431A;
     color:white;
     width:50em;
-    height:;
     border-radius:1.5em;
     cursor:pointer;
     padding-left:23em;
+    height:5em;
+    border-radius:1.5em;
+    cursor:pointer;
+    
 `
 
 export default JoinButton;
