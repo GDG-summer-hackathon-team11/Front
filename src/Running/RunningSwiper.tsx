@@ -1,23 +1,20 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
+import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import RunningCard from "./RunningCard";
 import {useFlow} from "../Stack/stackflow";
-import {useHistoryState} from "../History/HistoryStore";
 import styled from "@emotion/styled";
 import {useEffect, useRef} from "react";
-import {Navigation, Pagination, Scrollbar, Thumbs} from 'swiper';
+import {Pagination} from 'swiper';
+import {css} from '@emotion/css'
 
-const RunningSwiper = () => {
-  const { push } = useFlow();
-  const { id } = useHistoryState();
+interface RunningSwiperProps {
+  places: any[]
+}
+
+const RunningSwiper = (props: RunningSwiperProps) => {
+  const {push} = useFlow();
   const scrollerRef = useRef<HTMLDivElement | null>(null);
-
-  const handleClick = () => {
-    push("DetailPage", {
-      id: id,
-    });
-  };
 
   useEffect(() => {
     const scroller = scrollerRef.current
@@ -43,26 +40,29 @@ const RunningSwiper = () => {
 
   return (
     <SwiperContainer ref={scrollerRef}>
-    <Swiper
-      className="mySwiper"
-      // install Swiper modules
-      pagination={true}
-      modules={[Pagination]}
-      spaceBetween={50}
-      slidesPerView={1}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
-    >
-      {
-        Array.from({ length: 5}).map((item, index) => {
-          return (
-            <SwiperSlide key={index}>
-              <RunningCard key={index} onClick={handleClick}/>
-            </SwiperSlide>
-          )
-        })
-      }
-    </Swiper>
+      <Swiper
+        className={css`
+          --swiper-pagination-color: #6F7070
+        `}
+        pagination
+        modules={[Pagination]}
+        spaceBetween={50}
+        slidesPerView={1}
+      >
+        {
+          props.places.map((item, index) => {
+            return (
+              <SwiperSlide key={item.id}>
+                <RunningCard key={index} place={item} onClick={() => {
+                  push("DetailPage", {
+                    id: item.id,
+                  });
+                }}/>
+              </SwiperSlide>
+            )
+          })
+        }
+      </Swiper>
     </SwiperContainer>
   )
 }

@@ -1,9 +1,14 @@
 import styled from "@emotion/styled";
 import RunningDifficulty from "./RunningDifficulty";
 import RunningMembers from "./RunningMembers";
+import { useSwiperSlide } from 'swiper/react';
+import {useEffect} from "react";
+import {useMap} from "../Map/useMap";
+import {useHistoryActions} from "../History/HistoryStore";
 
 interface RunningCardProps {
   onClick: () => void
+  place:any
   // title: string
   // time:string
   // member: string
@@ -12,6 +17,20 @@ interface RunningCardProps {
 }
 
 const RunningCard = (props:RunningCardProps) => {
+  const swiperSlide = useSwiperSlide();
+  const map = useMap()
+  const { setSelectedId } = useHistoryActions()
+
+  useEffect(() => {
+    if(swiperSlide.isActive) {
+      // 지도 중심을 이동 시킵니다
+      map.setCenter(props.place.position);
+      map.setLevel(4)
+      setSelectedId(props.place.id)
+    }
+
+  }, [swiperSlide.isActive, map, props.place.id, props.place.position, setSelectedId])
+
   return (
     <Article onClick={props.onClick}>
       <Header>
