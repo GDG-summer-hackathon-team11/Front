@@ -1,10 +1,13 @@
 import React from 'react';
 import { Stack } from './Stack/stackflow';
+import KakaoMapScriptLoader from "./Map/KakaoMapScriptLoader";
 
 function App() {
   return (
     <div>
-      <Stack />
+      <KakaoMapScriptLoader>
+        <Stack />
+      </KakaoMapScriptLoader>
     </div>
   );
 }
