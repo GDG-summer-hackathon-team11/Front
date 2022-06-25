@@ -4,12 +4,15 @@ import styled from "@emotion/styled";
 import {useMap} from "./useMap";
 import IconStartPin from '../_assets/pin_start.png'
 import IconCheckPointPin from '../_assets/pin_checkpoint.png'
+import {useFlow} from "../Stack/stackflow";
+import {getHistoryStateById} from "../History/historyUtil";
 
 interface MapMarkerProps {
   position: kakao.maps.LatLng
   type: 'checkpoint' | 'main'
   index: number
   title: string
+  id: string
   showInfo?:boolean
 }
 
@@ -67,7 +70,10 @@ const MapMarker = (props:MapMarkerProps) => {
       map.setLevel(4, {
         animate: true
       })
-      //infoWindow.setMap(map);
+
+      window.history.replaceState({
+        id: props.id,
+      }, '', `?id=${props.id}`)
     });
 
     return marker
