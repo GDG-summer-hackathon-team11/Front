@@ -28,7 +28,6 @@ const RunningCard = (props:RunningCardProps) => {
       map.setLevel(4)
       setSelectedId(props.place.id)
     }
-
   }, [swiperSlide.isActive, map, props.place.id, props.place.position, setSelectedId])
 
   return (
