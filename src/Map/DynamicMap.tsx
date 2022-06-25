@@ -27,7 +27,7 @@ const DynamicMap = (props:StaticMapProps) => {
 
     const options = {
       center: targetPoint,
-      level: 5
+      level: 4
     };
 
     setMap(new kakao.maps.Map(kakaoMapRef.current, options));

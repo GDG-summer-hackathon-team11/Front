@@ -1,4 +1,5 @@
 import {ReactNode, useEffect, useState} from "react";
+import Loading from "../Remote/Loading";
 
 interface KakaoMapScriptLoaderProps {
   children: ReactNode
@@ -39,7 +40,7 @@ const KakaoMapScriptLoader = (props:KakaoMapScriptLoaderProps) => {
   return (
     <>
       {
-        mapScriptLoaded ? props.children : <>지도를 가져오는 중입니다.</>
+        mapScriptLoaded ? props.children : <Loading/>
       }
     </>
   )
