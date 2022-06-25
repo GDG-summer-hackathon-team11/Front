@@ -41,8 +41,8 @@ const MainPage = () => {
             <Loading/>
           ) : (
           <DynamicMap>
-            <MapMarkerController places={places} />
-            <RunningSwiper places={places} />
+            <MapMarkerController key={'MapMarkerController'} places={places} />
+            <RunningSwiper key={"RunningSwiper"} places={places} />
           </DynamicMap>
         )
       }

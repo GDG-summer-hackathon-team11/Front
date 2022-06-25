@@ -34,7 +34,7 @@ const StaticMapMarkerController = (props:StaticMapMarkerControllerProps) => {
       {props.places.map((place:any, index:number) => {
         if(place.type === 'main') {
           return (
-            <MapMarker key={place.id} id={place.id} position={place.position}
+            <MapMarker key={`${place.id}_${index}`} id={place.id} position={place.position}
                        index={index}
                        title={place.name}
                        isSelected={id === place.id}
@@ -43,7 +43,7 @@ const StaticMapMarkerController = (props:StaticMapMarkerControllerProps) => {
         }
 
         return (
-          <CheckPointMapMarker key={place.id} id={place.id} position={place.position}
+          <CheckPointMapMarker key={`${place.id}_${index}`} id={place.id} position={place.position}
                      index={index}
                      title={place.name}
                      isSelected={id === place.id}

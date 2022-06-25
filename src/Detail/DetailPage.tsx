@@ -53,7 +53,7 @@ const DetailPage = () => {
             place ? (
               <>
                 <StaticMap>
-                  <StaticMapMarkerController places={[{
+                  <StaticMapMarkerController key={"StaticMapMarkerController"} places={[{
                     name: place.startPoint.name,
                     position: place.startPoint.position,
                     type: 'main'
@@ -63,7 +63,7 @@ const DetailPage = () => {
                     type: 'checkPoint'
                   }))]}/>
                 </StaticMap>
-                <LocationDetail place={place}/>
+                <LocationDetail key={"LocationDetail"} place={place}/>
               </>
             ) : null
           )
