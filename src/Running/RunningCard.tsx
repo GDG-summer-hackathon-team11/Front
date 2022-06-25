@@ -1,9 +1,14 @@
 import styled from "@emotion/styled";
 import RunningDifficulty from "./RunningDifficulty";
 import RunningMembers from "./RunningMembers";
+import { useSwiperSlide } from 'swiper/react';
+import {useEffect} from "react";
+import {useMap} from "../Map/useMap";
+import {useHistoryActions} from "../History/HistoryStore";
 
 interface RunningCardProps {
   onClick: () => void
+  place:any
   // title: string
   // time:string
   // member: string
@@ -12,6 +17,20 @@ interface RunningCardProps {
 }
 
 const RunningCard = (props:RunningCardProps) => {
+  const swiperSlide = useSwiperSlide();
+  const map = useMap()
+  const { setSelectedId } = useHistoryActions()
+
+  useEffect(() => {
+    if(swiperSlide.isActive) {
+      // 지도 중심을 이동 시킵니다
+      map.setCenter(props.place.position);
+      map.setLevel(4)
+      setSelectedId(props.place.id)
+    }
+
+  }, [swiperSlide.isActive, map, props.place.id, props.place.position, setSelectedId])
+
   return (
     <Article onClick={props.onClick}>
       <Header>
@@ -61,21 +80,19 @@ const Age = styled.div`
 `
 
 const Article = styled.article`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: fixed;
-  
-  right: 1rem;
-  left: 1rem;
-  bottom: 1rem;
-  z-index: 2;
+  //display: flex;
+  //flex-direction: column;
+  //justify-content: center;
+  //position: fixed;
+  //
+  margin: 2rem 1rem;
+  //bottom: 1rem;
+  //z-index: 2;
   padding: 0.875rem 1.375rem 0.4375rem;
-  
+  //
   box-shadow: 2px 3px 6px #00000029;
   background-color: white;
   border-radius: 1.25rem;
-  min-height: 4rem;
 `
 
 export default RunningCard

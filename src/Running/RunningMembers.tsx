@@ -14,11 +14,11 @@ const RunningMembers = (props:RunningMembersProps) => {
       {
         Array.from({length: MAX_MEMBER_COUNT}).map((item, index) => {
           if(props.count >= index + 1) {
-            return <Icon src={MemberActiveIcon}/>
+            return <Icon key={index} src={MemberActiveIcon}/>
           }
 
           return (
-            <Icon src={MemberIcon}/>
+            <Icon key={index} src={MemberIcon}/>
           )
         })
       }
