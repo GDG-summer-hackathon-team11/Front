@@ -2,6 +2,9 @@ import {ReactNode, useEffect, useRef, useState} from "react";
 import styled from "@emotion/styled";
 
 const JoinButton = () => {
+    const ClickJoin = () =>{
+
+    }
     return(
         <Button>
             참여하기
@@ -12,7 +15,7 @@ const JoinButton = () => {
 const ButtonContiner = styled.div`
     padding-left:100px;
     align-content:center;
-
+    padding-top:300px;
 `
 
 const Button = styled.button`

@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import {getHistoryStateById} from "../History/historyUtil";
 import axios from "axios";
 import { useQueries } from "react-query";
+import RunFoot from '../_assets/Running.png'
 
 const LocationDetail = () => {
     const locationinfo = async(id:any) =>{
@@ -16,9 +17,13 @@ const LocationDetail = () => {
         <Containers>
             <Details>
                 시작점 위치(주소)
+                <h6>이마트 24</h6>
             </Details>
             <Details>
                 체크포인트
+                <h6>세븐 일레븐</h6>
+                <h6>GS25</h6>
+                <h6>서브웨이</h6>
             </Details>
             <Details>
                 난이도
@@ -28,9 +33,11 @@ const LocationDetail = () => {
             </Details>
             <Details>
                 시간
+                <h6>18:30</h6>
             </Details>
             <Details>
-                관심사
+                나이대
+                <h6>20대</h6>
             </Details>
         </Containers>
     );
@@ -41,13 +48,13 @@ const Containers = styled.div`
     height:50rem;
     padding-top:500px;
     padding-left:50px;
-    padding-bottom:20px;
+    padding-bottom:0.6em;
+    font-weight:bold;
 `
 
 const Details = styled.div`
     font-size:1.6rem;
-    font-weight:bold;
-    padding-bottom:50px;
+    padding-bottom:0.4em;
 
 `
 export default LocationDetail;
