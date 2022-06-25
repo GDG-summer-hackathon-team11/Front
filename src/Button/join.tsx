@@ -20,8 +20,8 @@ const Button = styled.button`
     width:50em;
     height:5em;
     border-radius:1.5em;
-    display:inline-block;
-    text-align:center;
+    cursor:pointer;
+    
 `
 
 export default JoinButton;

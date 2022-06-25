@@ -54,13 +54,11 @@ const Containers = styled.div`
     padding-top:500px;
     padding-left:50px;
     padding-bottom:0.6em;
-    font-weight:bold;
-`
+    font-weight:bold;`
 
 const Details = styled.div`
     font-size:1.6rem;
     padding-bottom:0.4em;
-    text-align:center;
     margin:auto;
 `
 export default LocationDetail;
