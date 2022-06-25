@@ -1573,6 +1573,39 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
+"@stackflow/basic-ui@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@stackflow/basic-ui/-/basic-ui-0.2.3.tgz#1c94684c0067abf5d0b0930339964ae73e686033"
+  integrity sha512-8qdcdnH6SadRopRRDvbPC/VTO1+BrVRIKWn+f0v2eJ6XAfgtwVLohKYCF3dHfL5MpOI8q32nKzecW+I/gKwLzw==
+  dependencies:
+    "@vanilla-extract/dynamic" "^2.0.2"
+
+"@stackflow/core@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@stackflow/core/-/core-0.2.1.tgz#8e235fb82efee6a2b67f5a7a03514dda7385310b"
+  integrity sha512-5CUbiGP5Jkuq/J3odiIMLy72z1CUUYL9fAaKQL8NlsYDt/8Df2JE+F7gzoqobktEPnZu+IpVvnlIJRvUnEpQ/w==
+  dependencies:
+    react-fast-compare "^3.2.0"
+
+"@stackflow/plugin-history-sync@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@stackflow/plugin-history-sync/-/plugin-history-sync-0.3.0.tgz#051786945622731a7cad4af6c7ef2e44813c8139"
+  integrity sha512-8qXybn+CCgBm5WqmI5aXIkLqWDJzC+9wo7/Ffo802VKl8bjXgcHMAcnU5pOvlZzZtwk4v4xa4/j7LUsfD/vVAg==
+  dependencies:
+    url-pattern "^1.0.3"
+
+"@stackflow/plugin-renderer-basic@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@stackflow/plugin-renderer-basic/-/plugin-renderer-basic-0.2.3.tgz#b799226fd0b64c2806b5fbfef2c9b618e56eb784"
+  integrity sha512-6ESlB77oUo9/5gmG8b7nKx/qUwrxa+Rs1Kb0szblkLRNbugh4EJpZBOIiQfNoeE8pigF0xuDqjsqpNeuIDwyXw==
+
+"@stackflow/react@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@stackflow/react/-/react-0.2.3.tgz#e6303454b2ca8ffdb970fc698bd78059599e8864"
+  integrity sha512-zPweoxS8OA0sSmcrPkV7K1c0lGj4pu1Km2Vvwc+gfvyRTDlW+XldVFZYHEb55BglYF6FGRxTdA8W/FBh5gKLaQ==
+  dependencies:
+    react-fast-compare "^3.2.0"
+
 "@surma/rollup-plugin-off-main-thread@^2.2.3":
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/@surma/rollup-plugin-off-main-thread/-/rollup-plugin-off-main-thread-2.2.3.tgz#ee34985952ca21558ab0d952f00298ad2190c053"
@@ -2147,6 +2180,18 @@
   dependencies:
     "@typescript-eslint/types" "5.29.0"
     eslint-visitor-keys "^3.3.0"
+
+"@vanilla-extract/dynamic@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@vanilla-extract/dynamic/-/dynamic-2.0.2.tgz#13a3e461964c8029a52e6b6b631009ca6a8b27f5"
+  integrity sha512-U4nKaEQ8Kuz+exXEr51DUpyaOuzo24/S/k1YbDPQR06cYcNjQqvwFRnwWtZ+9ImocqM1wTKtzrdUgSTtLGIwAg==
+  dependencies:
+    "@vanilla-extract/private" "^1.0.3"
+
+"@vanilla-extract/private@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@vanilla-extract/private/-/private-1.0.3.tgz#7ec72bc2ff6fe51f9d650f962e8d1989b073690f"
+  integrity sha512-17kVyLq3ePTKOkveHxXuIJZtGYs+cSoev7BlP+Lf4916qfDhk/HBjvlYDe8egrea7LNPHKwSZJK/bzZC+Q6AwQ==
 
 "@webassemblyjs/ast@1.11.1":
   version "1.11.1"
@@ -7230,6 +7275,11 @@ react-error-overlay@^6.0.11:
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-6.0.11.tgz#92835de5841c5cf08ba00ddd2d677b6d17ff9adb"
   integrity sha512-/6UZ2qgEyH2aqzYZgQPxEnz33NJ2gNsnHA2o5+o4wW9bLM/JYQitNP9xPhsXwC08hMMovfGe/8retsdDsczPRg==
 
+react-fast-compare@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
+  integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
+
 react-is@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
@@ -8435,6 +8485,11 @@ uri-js@^4.2.2:
   integrity sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==
   dependencies:
     punycode "^2.1.0"
+
+url-pattern@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/url-pattern/-/url-pattern-1.0.3.tgz#0409292471b24f23c50d65a47931793d2b5acfc1"
+  integrity sha512-uQcEj/2puA4aq1R3A2+VNVBgaWYR24FdWjl7VNW83rnWftlhyzOZ/tBjezRiC2UkIzuxC8Top3IekN3vUf1WxA==
 
 util-deprecate@^1.0.1, util-deprecate@^1.0.2, util-deprecate@~1.0.1:
   version "1.0.2"
