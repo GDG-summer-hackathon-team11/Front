@@ -1,6 +1,4 @@
-import ReactDom from "react-dom";
-import { useLayoutEffect, useMemo, useRef} from "react";
-import styled from "@emotion/styled";
+import { useLayoutEffect, useMemo} from "react";
 import {useMap} from "./useMap";
 import IconStartPin from '../_assets/pin_start.png'
 import IconActiveStartPin from '../_assets/pin_start_active.png'
@@ -17,7 +15,6 @@ interface MapMarkerProps {
 const MapMarker = (props:MapMarkerProps) => {
   const map = useMap()
   const { setSelectedId } = useHistoryActions()
-  const container = useRef(document.createElement("div"))
 
   const marker = useMemo(() => {
     const { kakao } = window;
@@ -34,10 +31,6 @@ const MapMarker = (props:MapMarkerProps) => {
       map.setLevel(4, {
         animate: true
       })
-
-      // window.history.replaceState({
-      //   id: props.id,
-      // }, '', `?id=${props.id}`)
 
       setSelectedId(props.id)
     });
@@ -61,10 +54,6 @@ const MapMarker = (props:MapMarkerProps) => {
         animate: true
       })
 
-      // window.history.replaceState({
-      //   id: props.id,
-      // }, '', `?id=${props.id}`)
-
       setSelectedId(props.id)
     });
 
@@ -86,35 +75,7 @@ const MapMarker = (props:MapMarkerProps) => {
     }
   }, [map, marker, activeMarker, props.isSelected])
 
-  return (
-    container.current &&
-    ReactDom.createPortal(
-      <Message onClick={() => {
-      }}>
-        <Title>{props.title}</Title>
-      </Message>, container.current)
-  )
+  return null;
 }
-
-const Title = styled.label`
-  white-space: pre-line;
-  font-weight: bold;
-  padding: 6px 8px;
-`
-
-const Message = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border-radius: 16px;
-  
-  width: 180px;
-  min-height: 50px;
-  margin-left: -90px;
-  
-  background: rgba(255, 228, 196, 0.9);
-  
-`
 
 export default MapMarker

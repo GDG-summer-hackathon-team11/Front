@@ -1,6 +1,6 @@
 import {AppScreen} from "@stackflow/basic-ui";
 import StaticMap from "../Map/staticMap"
-import LocationDetail from "../LocationDetail/LocationDetail";
+import LocationDetail from "./LocationDetail";
 import {getHistoryStateById} from "../History/historyUtil";
 import {useQuery} from "react-query";
 import {remote} from "../Remote/remote";
@@ -9,6 +9,7 @@ import {useEffect, useState} from "react";
 import {EventDetailType, PlaceDetailType} from "../Main/EvnetType";
 import format from "date-fns/format";
 import { useHistoryState} from "../History/HistoryStore";
+import MapMarkerController from "../Map/MapMarkerController";
 
 const DetailPage = () => {
   let id = useHistoryState().id;
@@ -44,15 +45,22 @@ const DetailPage = () => {
 
   return (
     <AppScreen theme="cupertino" appBar={{title: "상세 페이지"}}>
-      <StaticMap>
-
-      </StaticMap>
       {
         isLoading ?
           (
             <Loading/>
           ) : (
-            place ? <LocationDetail place={place}/> : null
+            place ? (
+              <>
+                <StaticMap>
+                  <MapMarkerController places={[{
+                    name: place.startPoint.name,
+                    position: place.startPoint.position
+                  }]} />
+                </StaticMap>
+                <LocationDetail place={place}/>
+              </>
+            ) : null
           )
       }
     </AppScreen>
