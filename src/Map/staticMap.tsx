@@ -1,13 +1,13 @@
 import {ReactNode, useEffect, useRef, useState} from "react";
 import styled from "@emotion/styled";
-import { KakaoMapContext } from "./useMap";
+// import { KakaoMapContext } from "./useMap";
 
 interface StaticMapProps {
   children: ReactNode
 }
 
-const DynamicMap = (props:StaticMapProps) => {
-  const [map, setMap] = useState<kakao.maps.Map>()
+const StaticMap = (props:StaticMapProps) => {
+  const [smap, setsMap] = useState<kakao.maps.StaticMap>()
   const kakaoMapRef = useRef<HTMLDivElement>(null)
 
 
@@ -23,10 +23,13 @@ const DynamicMap = (props:StaticMapProps) => {
 
     const options = {
       center: targetPoint,
-      level: 3
+      level: 3,
+      marker: {
+           position : new kakao.maps.LatLng(33.450401, 126.570647),
+        }  
     };
 
-    setMap(new kakao.maps.Map(kakaoMapRef.current, options));
+    setsMap(new kakao.maps.StaticMap(kakaoMapRef.current, options));
   }, [])
 
   return (
@@ -34,13 +37,6 @@ const DynamicMap = (props:StaticMapProps) => {
       <Container>
         <Map ref={kakaoMapRef} />
       </Container>
-      {
-        map ? (
-          <KakaoMapContext.Provider value={map}>
-            { props.children }
-          </KakaoMapContext.Provider>
-        ) : null
-      }
     </>
   )
 }
@@ -59,4 +55,4 @@ const Map = styled.div`
   height: 100%;
 `
 
-export default DynamicMap
+export default StaticMap;
