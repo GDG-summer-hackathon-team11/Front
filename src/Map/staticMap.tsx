@@ -29,6 +29,7 @@ const StaticMap = (props:StaticMapProps) => {
       center: targetPoint,
       level: 4,
       draggable: false,
+      zoom: false
     };
 
     setMap(new kakao.maps.Map(kakaoMapRef.current, options));

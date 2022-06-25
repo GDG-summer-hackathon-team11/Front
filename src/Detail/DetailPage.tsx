@@ -8,14 +8,14 @@ import Loading from "../Remote/Loading";
 import {useEffect, useState} from "react";
 import {EventDetailType, PlaceDetailType} from "../Main/EvnetType";
 import format from "date-fns/format";
-import { useHistoryState} from "../History/HistoryStore";
-import MapMarkerController from "../Map/MapMarkerController";
+import {useHistoryState} from "../History/HistoryStore";
+import StaticMapMarkerController from "../Map/StaticMapMarkerController";
 
 const DetailPage = () => {
   let id = useHistoryState().id;
   id = id ?? getHistoryStateById('id');
 
-  const { isLoading, error, data } = useQuery('eventDetail',() => remote.get(`/events/${id}`).then(res => res.data))
+  const {isLoading, error, data} = useQuery('eventDetail', () => remote.get(`/events/${id}`).then(res => res.data))
   const [place, setPlace] = useState<PlaceDetailType | null>(null);
 
   useEffect(() => {
@@ -53,10 +53,15 @@ const DetailPage = () => {
             place ? (
               <>
                 <StaticMap>
-                  <MapMarkerController places={[{
+                  <StaticMapMarkerController places={[{
                     name: place.startPoint.name,
-                    position: place.startPoint.position
-                  }]} />
+                    position: place.startPoint.position,
+                    type: 'main'
+                  }, ...place.checkPoint.map(item => ({
+                    name: item.name,
+                    position: item.position,
+                    type: 'checkPoint'
+                  }))]}/>
                 </StaticMap>
                 <LocationDetail place={place}/>
               </>
