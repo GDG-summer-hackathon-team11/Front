@@ -10,7 +10,6 @@ const DynamicMap = (props:StaticMapProps) => {
   const [map, setMap] = useState<kakao.maps.Map>()
   const kakaoMapRef = useRef<HTMLDivElement>(null)
 
-
   useEffect(() => {
     if(!kakaoMapRef.current) {
       return;
