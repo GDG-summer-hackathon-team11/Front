@@ -18,12 +18,17 @@ const DynamicMap = (props:StaticMapProps) => {
 
     const { kakao } = window;
 
-    // 공식 문서에 있는 지도 시작 주소
-    const targetPoint = new kakao.maps.LatLng(37.566826, 126.9786567)
+    // 역삼역 주소
+    const centerPoint = {
+      latitude: 37.5006744185994,
+      longitude: 127.03646946847
+    }
+
+    const targetPoint = new kakao.maps.LatLng(centerPoint.latitude, centerPoint.longitude)
 
     const options = {
       center: targetPoint,
-      level: 3
+      level: 5
     };
 
     setMap(new kakao.maps.Map(kakaoMapRef.current, options));
