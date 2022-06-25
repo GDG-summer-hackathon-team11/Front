@@ -3,11 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+<<<<<<< HEAD
     "@stackflow/basic-ui": "^0.2.3",
     "@stackflow/core": "^0.2.1",
     "@stackflow/plugin-history-sync": "^0.3.0",
     "@stackflow/plugin-renderer-basic": "^0.2.3",
     "@stackflow/react": "^0.2.3",
+=======
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+>>>>>>> d3c4d3bea52d69fd1949a5a4e71e8e537142373e
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
