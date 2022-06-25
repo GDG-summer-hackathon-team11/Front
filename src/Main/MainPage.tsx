@@ -43,6 +43,8 @@ const MainPage = () => {
   return (
     <AppScreen theme="cupertino">
       <DynamicMap>
+      {/* 메인 페이지
+      <button onClick={onClick}>상세 페이지 이동</button> */}
         <MapMarkerController places={places} />
         {
           id ? (
