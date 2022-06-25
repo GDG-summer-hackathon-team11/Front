@@ -40,9 +40,9 @@ const MapMarker = (props:MapMarkerProps) => {
         animate: true
       })
 
-      window.history.replaceState({
-        id: props.id,
-      }, '', `?id=${props.id}`)
+      // window.history.replaceState({
+      //   id: props.id,
+      // }, '', `?id=${props.id}`)
 
       setSelectedId(props.id)
     });
@@ -68,9 +68,9 @@ const MapMarker = (props:MapMarkerProps) => {
         animate: true
       })
 
-      window.history.replaceState({
-        id: props.id,
-      }, '', `?id=${props.id}`)
+      // window.history.replaceState({
+      //   id: props.id,
+      // }, '', `?id=${props.id}`)
 
       setSelectedId(props.id)
     });
