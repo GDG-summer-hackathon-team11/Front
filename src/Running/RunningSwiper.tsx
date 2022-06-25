@@ -43,7 +43,7 @@ const RunningSwiper = (props: RunningSwiperProps) => {
 
   useEffect(() => {
     swiper?.slideTo(props.places.findIndex(item => item.id === id) ?? 1)
-  }, [id])
+  }, [id, props.places, swiper])
 
   if(!id) {
     return null;

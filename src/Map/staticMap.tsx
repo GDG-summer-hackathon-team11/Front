@@ -10,7 +10,6 @@ const StaticMap = (props:StaticMapProps) => {
   const [map, setMap] = useState<kakao.maps.Map>()
   const kakaoMapRef = useRef<HTMLDivElement>(null)
 
-
   useEffect(() => {
     if(!kakaoMapRef.current) {
       return;
@@ -37,9 +36,9 @@ const StaticMap = (props:StaticMapProps) => {
 
   return (
     <>
-      <Container>
+      <>
         <Map ref={kakaoMapRef} />
-      </Container>
+      </>
       {
         map ? (
           <KakaoMapContext.Provider value={map}>
@@ -51,20 +50,8 @@ const StaticMap = (props:StaticMapProps) => {
   )
 }
 
-const Container = styled.div`
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width:100%;
-  height:100%;
-`
-
 const Map = styled.div`
-  position: static;
-  width: 100rem;
-  height: 30rem;
+  height: 13.125rem;
 `
 
 export default StaticMap

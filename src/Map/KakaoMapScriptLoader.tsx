@@ -1,5 +1,5 @@
 import {ReactNode, useEffect, useState} from "react";
-import Loading from "../Remote/Loading";
+import Loading from "../Remote/Loading"
 
 interface KakaoMapScriptLoaderProps {
   children: ReactNode

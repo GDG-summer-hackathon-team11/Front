@@ -1,63 +1,86 @@
-import ReactDom from "react-dom";
-import { useLayoutEffect, useMemo, useRef} from "react";
 import styled from "@emotion/styled";
-import {getHistoryStateById} from "../History/historyUtil";
-import axios from "axios";
 import RunningDifficulty from "../Running/RunningDifficulty";
 import RunningMembers from "../Running/RunningMembers";
 import JoinButton from "../Button/join";
+import {PlaceDetailType} from "../Main/EvnetType";
 
-const LocationDetail = () => {
-    const locationinfo = async(id:any) =>{
-        const {data} = await axios.get(
-            `url/${id}`,
-        );
-        return data
-     }
-    return(
-        <Containers>
-            <Details>
-                시작점 위치(주소)
-                <h6>이마트 24</h6>
-            </Details>
-            <Details>
-                체크포인트
-                <h6>세븐 일레븐</h6>
-                <h6>GS25</h6>
-                <h6>서브웨이</h6>
-            </Details>
-            <Details>
-                난이도
-                <RunningDifficulty difficult={1}/>
-                <h6>가벼운 운동</h6>
-            </Details>
-            <Details>
-                인원
-                <RunningMembers count = {2}/>
-            </Details>
-            <Details>
-                시간
-                <h6>18:30</h6>
-            </Details>
-            <Details>
-                나이대
-                <h6>20대</h6>
-            </Details>
-            <JoinButton/>
-        </Containers>
-    );
+interface LocationDetailProps {
+  place: PlaceDetailType
 }
 
+const LocationDetail = (props:LocationDetailProps) => {
+  return (
+    <Containers>
+      <HeaderContainer>
+        <HeaderTitle>시작점 위치(주소)</HeaderTitle>
+        <Label>{props.place.startPoint.name}</Label>
+      </HeaderContainer>
+      <Details>
+        <Title>체크포인트</Title>
+        <CheckPointContainer>
+          {
+            props.place.checkPoint.map(item => {
+              return (
+                <Label key={item.name}>{item.name}</Label>
+              )
+            })
+          }
+        </CheckPointContainer>
+      </Details>
+      <Details>
+        <Title>난이도</Title>
+        <RunningDifficulty difficult={props.place.level}/>
+      </Details>
+      <Details>
+        <Title>인원</Title>
+        <RunningMembers count={props.place.members.length}/>
+      </Details>
+      <Details>
+        <Title>시간</Title>
+        <Label>{props.place.date}</Label>
+      </Details>
+      <Details>
+        <Title>나이대</Title>
+        <Label>{props.place.ageCoverage}대</Label>
+      </Details>
+      <Details>
+        <Title>관심사</Title>
+      </Details>
+      <JoinButton/>
+    </Containers>
+  );
+}
+
+const CheckPointContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+const HeaderContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+const HeaderTitle = styled.h2`
+  font-size: 1.3125rem;
+  padding: 0;
+  margin: 0;
+`
+
+const Title = styled.h3`
+  font-size: 1.125rem;
+  padding: 0;
+  margin: 1.0625rem 0 0 0;
+`
+
+const Label = styled.label`
+  margin-top: 0.5rem;
+`
+
 const Containers = styled.div`
-    width: 90vw;
-    height: 50vh;
-    padding-top:500px;
-    padding-left:10px;
-    padding-bottom:0.6em;
-    font-weight:bold;`
+  padding: 0.75rem 1rem;
+`
 
 const Details = styled.div`
-    font-size:1.6rem;
-    padding-bottom:0.4em;
 `
 export default LocationDetail;
